@@ -15,8 +15,8 @@ function handleOrientation(event) {
   const div = document.getElementById("tiltable-ticket");
   const rect = div.getBoundingClientRect();
 
-  const shadowX = tiltX;
-  const shadowY = tiltY;
+  const shadowX = Math.abs(tiltX / 3);
+  const shadowY = Math.abs(tiltY / 3);
   const shadowBlur = Math.abs(shadowX) + Math.abs(shadowY);
   const shineX = ((tiltX - rect.left) / rect.width) * 100;
 

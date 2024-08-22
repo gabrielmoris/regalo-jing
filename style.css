@@ -29,6 +29,7 @@ a {
   height: 12rem;
   color: black;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  perspective: 1000px;
 }
 
 .ticket::before {
@@ -102,4 +103,8 @@ a {
 
 .img-qr {
   max-width: 80px;
+}
+
+#tiltable-ticket {
+  transition: transform 0.1s ease-out;
 }

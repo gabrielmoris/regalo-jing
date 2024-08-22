@@ -15,8 +15,8 @@ function handleOrientation(event) {
   const div = document.getElementById("tiltable-ticket");
   const shineX = ((mouseX - rect.left) / rect.width) * 100;
 
-  //   div.style.transform = `rotateY(${tiltX}deg) rotateX(${-tiltY}deg)`;
-  div.style.transform = `rotateY(${tiltX}deg) rotateX(${tiltY}deg)`;
+  div.style.transform = `rotateY(${tiltX}deg) rotateX(${-tiltY}deg)`;
+  //   div.style.transform = `rotateY(${tiltX}deg) rotateX(${tiltY}deg)`;
   div.style.background = `linear-gradient(${shineX}deg, #deabb4 0%, #ffffff90 55%, #ffffff90 50%, #ffffff90 75%, #deabb4 100%)`;
 }
 

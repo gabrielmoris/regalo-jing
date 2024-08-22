@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Feliz Cumpleaños Jing</title>
+    <link rel="icon" type="image/x-icon" href="./favicon.ico" />
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
@@ -23,36 +24,6 @@
       </div>
     </a>
 
-    <script>
-      function handleOrientation(event) {
-        const beta = event.beta;
-        const gamma = event.gamma;
-
-        const tiltX = Math.max(-30, Math.min(30, gamma));
-        const tiltY = Math.max(-30, Math.min(30, beta));
-
-        const div = document.getElementById("tiltable-ticket");
-        div.style.transform = `rotateY(${tiltX}deg) rotateX(${-tiltY}deg)`;
-      }
-
-      // Initialize the function
-      if (window.DeviceOrientationEvent) {
-        if (typeof DeviceOrientationEvent.requestPermission === "function") {
-          // For iOS 13+ devices
-          DeviceOrientationEvent.requestPermission()
-            .then((permissionState) => {
-              if (permissionState === "granted") {
-                window.addEventListener("deviceorientation", handleOrientation);
-              }
-            })
-            .catch(console.error);
-        } else {
-          // For non iOS 13+ devices
-          window.addEventListener("deviceorientation", handleOrientation);
-        }
-      } else {
-        console.log("Device orientation not supported");
-      }
-    </script>
+    <script src="./script.js"></script>
   </body>
 </html>

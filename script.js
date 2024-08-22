@@ -13,10 +13,11 @@ function handleOrientation(event) {
   const tiltY = Math.max(-30, Math.min(30, beta));
 
   const div = document.getElementById("tiltable-ticket");
-  const shineX = ((mouseX - rect.left) / rect.width) * 100;
+  const rect = div.getBoundingClientRect();
 
   div.style.transform = `rotateY(${tiltX}deg) rotateX(${-tiltY}deg)`;
-  //   div.style.transform = `rotateY(${tiltX}deg) rotateX(${tiltY}deg)`;
+  const shineX = ((tiltX - rect.left) / rect.width) * 100;
+
   div.style.background = `linear-gradient(${shineX}deg, #deabb4 0%, #ffffff90 55%, #ffffff90 50%, #ffffff90 75%, #deabb4 100%)`;
 }
 

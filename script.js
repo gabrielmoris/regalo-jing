@@ -15,10 +15,17 @@ function handleOrientation(event) {
   const div = document.getElementById("tiltable-ticket");
   const rect = div.getBoundingClientRect();
 
-  div.style.transform = `rotateY(${tiltX}deg) rotateX(${-tiltY}deg)`;
+  const shadowX = tiltX / 3;
+  const shadowY = tiltY / 3;
+  const shadowBlur = Math.abs(shadowX * 2) + Math.abs(shadowY * 2);
   const shineX = ((tiltX - rect.left) / rect.width) * 100;
 
+  div.style.transform = `rotateY(${tiltX}deg) rotateX(${-tiltY}deg)`;
   div.style.background = `linear-gradient(${shineX}deg, #deabb4 0%, #ffffff90 55%, #ffffff90 50%, #ffffff90 75%, #deabb4 100%)`;
+  div.style.boxShadow = `
+    ${shadowX}px ${shadowY}px ${shadowBlur}px rgba(0, 0, 0, 0.3),
+    ${-shadowX}px ${-shadowY}px ${shadowBlur}px rgba(255, 255, 255, 0.3)
+  `;
 }
 
 function handleMouseMove(event) {
@@ -33,13 +40,19 @@ function handleMouseMove(event) {
   const tiltX = ((mouseX - centerX) / (rect.width / 2)) * 30;
   const tiltY = ((mouseY - centerY) / (rect.height / 2)) * -30;
 
-  // Calculate shine position
-  const shineX = ((mouseX - rect.left) / rect.width) * 100;
-  //   const shineY = ((mouseY - rect.top) / rect.height) * 100;
+  const shadowX = (mouseX - centerX) / 10;
+  const shadowY = (mouseY - centerY) / 10;
+  const shadowBlur = Math.abs(shadowX * 2) + Math.abs(shadowY * 2);
 
-  // Apply tilt and shine effect
+  const shineX = ((mouseX - rect.left) / rect.width) * 100;
+
   div.style.transform = `rotateY(${tiltX}deg) rotateX(${tiltY}deg)`;
   div.style.background = `linear-gradient(${shineX}deg, #deabb4 0%, #ffffff90 55%, #ffffff90 50%, #ffffff90 75%, #deabb4 100%)`;
+
+  div.style.boxShadow = `
+  ${shadowX}px ${shadowY}px ${shadowBlur}px rgba(0, 0, 0, 0.3),
+   ${-shadowX}px ${-shadowY}px ${shadowBlur}px rgba(255, 255, 255, 0.3)
+`;
 }
 
 // Initialize the function

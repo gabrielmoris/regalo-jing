@@ -16,8 +16,8 @@ function handleOrientation(event) {
   const rect = div.getBoundingClientRect();
 
   const shadowX = Math.abs(tiltX / 3);
-  const shadowY = Math.abs(tiltY / 3);
-  const shadowBlur = Math.abs(shadowX) + Math.abs(shadowY);
+  const shadowY = Math.abs(tiltY / 2);
+  const shadowBlur = Math.abs(shadowX) + Math.abs(shadowY) * 2;
   const shineX = ((tiltX - rect.left) / rect.width) * 100;
 
   div.style.transform = `rotateY(${tiltX}deg) rotateX(${-tiltY}deg)`;
@@ -46,7 +46,7 @@ function handleMouseMove(event) {
 
   const shineX = ((mouseX - rect.left) / rect.width) * 100;
 
-  div.style.transform = `rotateY(${tiltX}deg) rotateX(${tiltY}deg)`;
+  div.style.transform = `rotateY(${-tiltX}deg) rotateX(${tiltY}deg)`;
   div.style.background = `linear-gradient(${shineX}deg, #deabb4 0%, #ffffff90 55%, #ffffff90 50%, #ffffff90 75%, #deabb4 100%)`;
 
   div.style.boxShadow = `

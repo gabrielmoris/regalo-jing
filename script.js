@@ -17,7 +17,7 @@ function handleOrientation(event) {
 
   const shadowX = Math.abs(tiltX);
   const shadowY = Math.abs(tiltY);
-  const shadowBlur = Math.abs(shadowX) + Math.abs(shadowY) * 3;
+  const shadowBlur = Math.abs(shadowX) + Math.abs(shadowY) * 2;
   const shineX = ((tiltX - rect.left) / rect.width) * 100;
 
   div.style.transform = `rotateY(${tiltX}deg) rotateX(${-tiltY}deg)`;

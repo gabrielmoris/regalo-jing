@@ -15,16 +15,16 @@ function handleOrientation(event) {
   const div = document.getElementById("tiltable-ticket");
   const rect = div.getBoundingClientRect();
 
-  const shadowX = Math.abs(tiltX / 3);
-  const shadowY = Math.abs(tiltY / 2);
-  const shadowBlur = Math.abs(shadowX) + Math.abs(shadowY) * 2;
+  const shadowX = Math.abs(tiltX);
+  const shadowY = Math.abs(tiltY);
+  const shadowBlur = Math.abs(shadowX) + Math.abs(shadowY) * 3;
   const shineX = ((tiltX - rect.left) / rect.width) * 100;
 
   div.style.transform = `rotateY(${tiltX}deg) rotateX(${-tiltY}deg)`;
   div.style.background = `linear-gradient(${shineX}deg, #deabb4 0%, #ffffff90 55%, #ffffff90 50%, #ffffff90 75%, #deabb4 100%)`;
   div.style.boxShadow = `
     ${shadowX}px ${shadowY}px ${shadowBlur}px rgba(0, 0, 0, 0.3),
-    ${-shadowX}px ${-shadowY}px ${shadowBlur}px rgba(255, 255, 255, 0.3)
+    ${-shadowX}px ${shadowY}px ${shadowBlur}px rgba(255, 255, 255, 0.3)
   `;
 }
 

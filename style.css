@@ -7,6 +7,7 @@ body {
   margin: 0;
   padding: 1rem;
   font-family: Arial, sans-serif;
+  cursor: url("./ice-cream.svg"), auto;
 }
 
 a {
